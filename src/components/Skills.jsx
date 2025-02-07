@@ -1,11 +1,16 @@
 import { motion } from "framer-motion";
+import icon1 from "../assets/icons/premiere pro_icon.png"
+import icon2 from "../assets/icons/photoshop_icon.png"
+import icon3 from "../assets/icons/lightroom_logo_icon.png"
+import icon4 from "../assets/icons/video editing.png"
+import icon5 from "../assets/icons/graphic-design.png"
 
 const skills = [
-  { name: "Adobe Premiere Pro", icon: "/assets/icons/premiere-pro.svg", proficiency: 95 },
-  { name: "Adobe Photoshop", icon: "/assets/icons/photoshop.svg", proficiency: 90 },
-  { name: "Adobe Lightroom", icon: "/assets/icons/lightroom.svg", proficiency: 85 },
-  { name: "Graphic Design", icon: "/assets/icons/design.svg", proficiency: 90 },
-  { name: "Video Editing", icon: "/assets/icons/video-editing.svg", proficiency: 95 },
+  { name: "Adobe Premiere Pro", icon: icon1, proficiency: 95 },
+  { name: "Adobe Photoshop", icon: icon2, proficiency: 90 },
+  { name: "Adobe Lightroom", icon: icon3, proficiency: 85 },
+  { name: "Graphic Design", icon: icon5, proficiency: 90 },
+  { name: "Video Editing", icon: icon4, proficiency: 95 },
 ];
 
 const Skills = () => {
