@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 
 const skills = [
-  { name: "React", icon: "/assets/icons/react.svg", proficiency: 90 },
-  { name: "Tailwind CSS", icon: "/assets/icons/tailwind.svg", proficiency: 85 },
-  { name: "Framer Motion", icon: "/assets/icons/framer.svg", proficiency: 80 },
+  { name: "Adobe Premiere Pro", icon: "/assets/icons/premiere-pro.svg", proficiency: 95 },
+  { name: "Adobe Photoshop", icon: "/assets/icons/photoshop.svg", proficiency: 90 },
+  { name: "Adobe Lightroom", icon: "/assets/icons/lightroom.svg", proficiency: 85 },
+  { name: "Graphic Design", icon: "/assets/icons/design.svg", proficiency: 90 },
+  { name: "Video Editing", icon: "/assets/icons/video-editing.svg", proficiency: 95 },
 ];
 
 const Skills = () => {
@@ -24,7 +26,11 @@ const Skills = () => {
               whileHover={{ scale: 1.05 }}
               className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center"
             >
-              <img src={skill.icon} alt={skill.name} className="w-16 h-16 mx-auto mb-4" />
+              <img
+                src={skill.icon}
+                alt={skill.name}
+                className="w-16 h-16 mx-auto mb-4"
+              />
               <h3 className="text-xl font-bold mb-2 dark:text-white">{skill.name}</h3>
               <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-600">
                 <div
