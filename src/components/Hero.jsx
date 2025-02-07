@@ -20,7 +20,7 @@ const Hero = () => {
           alt="Profile"
           className="w-32 h-32 rounded-full mx-auto mb-4"
         />
-        <h1 className="text-5xl font-bold mb-4 dark:text-white">Welcome to My Portfolio</h1>
+        <h1 className="text-5xl font-bold mb-4 dark:text-white">Welcome to My nice Portfolio</h1>
         <p className="text-xl dark:text-gray-300">I build amazing web experiences</p>
       </motion.div>
     </motion.section>
