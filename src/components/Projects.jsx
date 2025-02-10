@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [
-    { id: 1, name: "Project 1", description: "A cool project", image: "https://via.placeholder.com/300" },
-    { id: 2, name: "Project 2", description: "Another cool project", image: "https://via.placeholder.com/300" },
+    { id: 1, name: "redux query app", description: "crud app with redux", image: "https://via.placeholder.com/300" },
+    { id: 2, name: "next js admin", description: "next js simple admin app", image: "https://via.placeholder.com/300" },
   ];
 
   return (
@@ -24,7 +24,6 @@ const Projects = () => {
               whileTap={{ scale: 0.95 }}
               className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden"
             >
-              <img src={project.image} alt={project.name} className="w-full h-48 object-cover" />
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 dark:text-white">{project.name}</h3>
                 <p className="dark:text-gray-300">{project.description}</p>
