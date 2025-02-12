@@ -8,6 +8,7 @@ import Testimonials from "./components/Testimonials";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Loading from "./components/Loading";
+import FollowMe from "./components/FollowMe";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +27,7 @@ function App() {
           <Skills />
           <Projects />
           {/* <Testimonials /> */}
+          <FollowMe />
           <Contact />
           <Footer />
         </>

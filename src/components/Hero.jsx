@@ -18,9 +18,10 @@ const Hero = () => {
         <img
           src="/images/profile.jpg"
           alt="Profile"
-          className="w-32 h-32 rounded-full mx-auto mb-4"
+          className="w-48 h-48 rounded-full mx-auto mb-4" // Increased size
         />
-        <h1 className="text-5xl font-bold mb-4 dark:text-white">Welcome to My Portfolio</h1>
+        <h2 className="text-3xl font-bold mb-2 dark:text-white">Ebrahim Worke</h2>
+        <h1 className="text-4xl font-bold mb-4 dark:text-white">Welcome to My Portfolio</h1> {/* Reduced size */}
         <p className="text-xl dark:text-gray-300">
           I'm a <span className="font-bold">Graphic Designer</span> and{" "}
           <span className="font-bold">Video Editor</span> creating visual magic.

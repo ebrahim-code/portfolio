@@ -50,6 +50,11 @@ const Contact = () => {
             Send Message
           </button>
         </form>
+        <div className="mt-8 text-center dark:text-white">
+          <h3 className="text-xl font-bold">Contact Information</h3>
+          <p>Email: <a href="mailto:ebrahimworkie@gmail.com" className="text-blue-500 hover:underline">ebrahimworkie@gmail.com</a></p>
+          <p>Phone: <a href="tel:+251938133800" className="text-blue-500 hover:underline">+251938133800</a></p>
+        </div>
       </div>
     </motion.section>
   );
