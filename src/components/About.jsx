@@ -7,122 +7,188 @@ const About = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.2, ease: "easeOut" }}
       viewport={{ once: true, amount: 0.3 }}
-      className="py-24 md:py-32 bg-gradient-to-b from-gray-950 via-indigo-950 to-purple-950 text-white relative overflow-hidden font-sans"
+      className="py-16 md:py-24 relative overflow-hidden"
       id="about"
     >
-      {/* Subtle animated wave background */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-indigo-950 dark:to-purple-950" />
+
+      {/* Wave */}
+      <div className="absolute inset-0 opacity-15 dark:opacity-8 pointer-events-none">
         <svg className="w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
           <defs>
             <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#7dd3fc" />
-              <stop offset="50%" stopColor="#a78bfa" />
-              <stop offset="100%" stopColor="#f472b6" />
+              <stop offset="0%" stopColor="#a5f3fc" />
+              <stop offset="50%" stopColor="#c084fc" />
+              <stop offset="100%" stopColor="#f9a8d4" />
             </linearGradient>
           </defs>
-          <motion.path
+          <path
             fill="url(#waveGradient)"
-            d="M0,224L48,213.3C96,203,192,181,288,165.3C384,149,480,139,576,154.7C672,171,768,213,864,213.3C960,213,1056,171,1152,149.3C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-            animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 12, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+            d="M0,224L48,213.3C96,203,192,181,288,165.3C384,149,480,139,576,154.7C672,171,768,213,864,213.3C960,213,1056,171,1152,149.3C1248,128,1344,128,1392,128L1440,128L1440,320L0,320Z"
           />
         </svg>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10 max-w-7xl">
         <motion.h2
-          className="text-5xl md:text-6xl font-extrabold text-center mb-16 md:mb-20 tracking-tight bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent"
-          initial={{ opacity: 0, y: -60 }}
+          className="text-4xl md:text-5xl font-extrabold text-center mb-12 md:mb-16 tracking-tight text-gray-900 dark:text-gray-100"
+          initial={{ opacity: 0, y: -40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, type: "spring", stiffness: 80 }}
+          transition={{ duration: 0.9, type: "spring" }}
         >
           About Me
         </motion.h2>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
-          {/* Profile Image with glow */}
+        {/* === First row === */}
+        <div className="flex flex-col lg:flex-row items-stretch justify-between gap-10 lg:gap-16 mb-16 lg:mb-20">
+          {/* Left - Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.85, rotate: -5 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1.2, delay: 0.2, type: "spring", stiffness: 90 }}
-            className="relative w-72 h-72 md:w-80 md:h-80 flex-shrink-0"
+            className="w-full lg:w-5/12 flex justify-center lg:justify-start"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-purple-600 to-pink-500 rounded-full blur-3xl opacity-40 animate-pulse-slow" />
-            <motion.img
-              src="/images/profile.jpg"
-              alt="Ebrahim Worke"
-              className="w-full h-full object-cover rounded-full border-4 border-white/30 shadow-2xl relative z-10"
-              whileHover={{
-                scale: 1.08,
-                rotate: 5,
-                boxShadow: "0 0 60px rgba(167, 139, 250, 0.6)",
-                transition: { duration: 0.4 },
-              }}
-            />
+            <div className="relative w-full max-w-[420px] lg:max-w-none aspect-[4/5] sm:aspect-[5/6] lg:aspect-auto">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-300 to-purple-300 dark:from-cyan-700 dark:to-purple-700 rounded-3xl blur-2xl opacity-40" />
+              <motion.img
+                src="/images/b3.jpg"
+                alt="Ebrahim Worke"
+                className="relative w-full h-full object-cover rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700"
+                whileHover={{ scale: 1.03 }}
+                onError={(e) => {
+                  e.currentTarget.src = "https://via.placeholder.com/420x560?text=Image+Not+Found";
+                }}
+              />
+            </div>
           </motion.div>
 
-          {/* Text Content – Glassmorphism Card */}
+          {/* Right - Text (now stretches to match image height) */}
           <motion.div
+            className="w-full lg:w-7/12 flex flex-col"
             initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, delay: 0.4, type: "spring", stiffness: 80 }}
-            className="lg:w-3/5 backdrop-blur-xl bg-black/40 border border-white/10 rounded-3xl p-8 md:p-12 shadow-2xl"
-            style={{
-              boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(167, 139, 250, 0.2)",
-            }}
+            transition={{ duration: 1, delay: 0.4 }}
           >
-            <motion.p
-              className="text-lg md:text-xl leading-relaxed mb-6 text-gray-200"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-            >
-              Hey there! I’m <span className="font-bold text-cyan-400">Ebrahim Worke</span>, a passionate tech enthusiast and{" "}
-              <span className="font-bold text-purple-400">Technical Assistant</span> at{" "}
-              <span className="font-bold text-pink-400">Wollo University</span>’s{" "}
-              <span className="font-bold text-cyan-300">Kombolcha Institute of Technology (KIOT)</span>, in the{" "}
-              <span className="font-bold text-purple-300">Electrical and Computer Engineering Department</span> –{" "}
-              <span className="font-bold text-amber-300">Computer Engineering stream</span>.
-            </motion.p>
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-cyan-200/50 dark:border-cyan-800/40 rounded-2xl p-8 md:p-10 lg:p-12 shadow-2xl flex-grow flex flex-col justify-between min-h-[480px] lg:min-h-0 lg:h-full">
+              <div>
+                <motion.p
+                  className="text-lg md:text-xl leading-relaxed mb-6 text-gray-800 dark:text-gray-200"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  Hi, I'm <span className="font-semibold text-cyan-700 dark:text-cyan-400">Ebrahim Worke</span> — a full-stack developer and technical assistant at{" "}
+                  <span className="font-semibold text-purple-700 dark:text-purple-400">
+                    Wollo University's Kombolcha Institute of Technology (KIOT)
+                  </span>{" "}
+                  in the Computer Engineering stream.
+                </motion.p>
 
-            <motion.p
-              className="text-lg md:text-xl leading-relaxed mb-6 text-gray-200"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.8 }}
-            >
-              I’m currently pursuing my degree in <span className="font-bold text-cyan-400">Electrical and Computer Engineering</span> at{" "}
-              <span className="font-bold text-purple-400">Jimma University</span>, with graduation on the horizon in <span className="font-bold text-pink-400">2025</span>. 
-              Previously, I completed a 3-month internship at the <span className="font-bold text-cyan-300">AI Center</span>, where I dove deep into full-stack development and AI-driven projects — including building an intelligent irrigation system that truly made an impact.
-            </motion.p>
+                <motion.p
+                  className="text-lg md:text-xl leading-relaxed mb-6 text-gray-800 dark:text-gray-200"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.65 }}
+                >
+                  I graduated in June 2025 from{" "}
+                  <span className="font-semibold text-pink-700 dark:text-pink-400">Jimma University</span> with a degree in{" "}
+                  <span className="font-semibold text-indigo-700 dark:text-indigo-300">
+                    Electrical and Computer Engineering
+                  </span>
+                  , specializing in Computer Engineering.
+                </motion.p>
 
-            <motion.p
-              className="text-lg md:text-xl leading-relaxed mb-6 text-gray-200"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 1.0 }}
-            >
-              My toolkit includes <span className="font-bold text-purple-400">React</span>, <span className="font-bold text-cyan-400">Node.js</span>, modern JavaScript ecosystems, and a growing passion for IoT, animations, and creative problem-solving. I blend technical precision with design intuition to build meaningful, user-focused solutions.
-            </motion.p>
+                <motion.p
+                  className="text-lg md:text-xl leading-relaxed mb-8 text-gray-800 dark:text-gray-200"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                >
+                  I bridge code, hardware, and real-world impact through clean, modern web applications and IoT solutions.
+                </motion.p>
+              </div>
 
-            <motion.p
-              className="text-lg md:text-xl leading-relaxed text-gray-200"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-            >
-              Whether it’s coding innovative apps, mentoring students, or exploring the latest in tech, I’m all about turning ideas into reality — fueled by coffee, collaboration, and curiosity. Let’s connect and build something extraordinary!
-            </motion.p>
+              {/* Bottom part - can be used for extra info if needed */}
+              <motion.div
+                className="text-base italic text-gray-600 dark:text-gray-400 mt-auto pt-4"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.8 }}
+              >
+                <p>Open to collaborations, freelance opportunities, and meaningful tech projects.</p>
+              </motion.div>
+            </div>
+          </motion.div>
+        </div>
 
-            <motion.div
-              className="mt-8 text-base italic text-gray-400"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 1.4 }}
-            >
-              <p><strong>Currently exploring:</strong> Advanced animations, IoT integrations, and scalable full-stack architectures.</p>
-              <p><strong>Favorite project highlight:</strong> That smart irrigation system — tech that helps farmers and feels like a real-world win.</p>
-            </motion.div>
+        {/* === Second row === */}
+        <div className="flex flex-col lg:flex-row-reverse items-stretch justify-between gap-10 lg:gap-16">
+          {/* Image - right side */}
+          <motion.div
+            className="w-full lg:w-5/12 flex justify-center lg:justify-end"
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            <div className="relative w-full max-w-md aspect-[4/3] sm:aspect-[5/4]">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-300 to-purple-300 dark:from-cyan-700 dark:to-purple-700 rounded-3xl blur-2xl opacity-30" />
+              <img
+                src="/images/bb2.jpg"
+                alt="Working on project"
+                className="relative w-full h-full object-cover rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700"
+                onError={(e) => {
+                  e.currentTarget.src = "https://via.placeholder.com/500x400?text=Second+Image+Missing";
+                }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Text - left side */}
+          <motion.div
+            className="w-full lg:w-7/12 flex flex-col"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+          >
+            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border border-cyan-200/50 dark:border-cyan-800/40 rounded-2xl p-8 md:p-10 lg:p-12 shadow-2xl flex-grow min-h-[480px] lg:min-h-0 lg:h-full">
+              <motion.p
+                className="text-lg md:text-xl leading-relaxed mb-6 text-gray-800 dark:text-gray-200"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+              >
+                <span className="font-semibold">My stack:</span> React • Next.js • TypeScript • Node.js • Express • Tailwind CSS • Framer Motion • MongoDB / PostgreSQL • IoT (ESP32, Raspberry Pi)
+              </motion.p>
+
+              <motion.p
+                className="text-lg md:text-xl leading-relaxed mb-6 text-gray-800 dark:text-gray-200"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.55 }}
+              >
+                I enjoy clean code, smooth animations, performance optimization, and turning real-world problems into practical, scalable solutions — whether web, mobile, or hardware-integrated systems.
+              </motion.p>
+
+              <motion.p
+                className="text-lg md:text-xl leading-relaxed mb-6 text-gray-800 dark:text-gray-200"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.6 }}
+              >
+                Outside of tech: video editing, graphic design, strong coffee, and late-night product experiments.
+              </motion.p>
+
+              <motion.div
+                className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700 text-base italic text-gray-700 dark:text-gray-300"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.7 }}
+              >
+                <p><strong>Currently focused on:</strong> TypeScript + modern full-stack practices, advanced animations, IoT ↔ web integration</p>
+                <p><strong>Most rewarding project:</strong> Smart irrigation system — tech that directly helps people</p>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </div>
