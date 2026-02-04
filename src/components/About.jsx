@@ -134,7 +134,7 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            <div className="relative w-full max-w-md aspect-[4/3] sm:aspect-[5/4]">
+            <div className="relative w-full max-w-[380px] sm:max-w-md lg:max-w-none aspect-square sm:aspect-[5/4] lg:aspect-[4/3]">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-300 to-purple-300 dark:from-cyan-700 dark:to-purple-700 rounded-3xl blur-2xl opacity-30" />
               <img
                 src="/images/bb2.jpg"
