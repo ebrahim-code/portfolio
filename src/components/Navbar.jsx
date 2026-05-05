@@ -166,37 +166,43 @@ const Navbar = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: "auto", opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="overflow-hidden md:hidden glass-card border-t border-slate-800/60"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-40 md:hidden flex flex-col bg-slate-950/90 backdrop-blur-2xl"
             >
-              <div className="px-6 py-4 flex flex-col gap-1">
+              <div className="flex-1 flex flex-col items-center justify-center gap-6 px-10">
                 {links.map((item, i) => (
                   <motion.button
                     key={item}
                     onClick={() => handleNav(item)}
-                    initial={{ x: -20, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.06 }}
-                    className={`text-left px-4 py-3 rounded-xl font-medium transition-all ${
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ delay: i * 0.1, type: "spring", stiffness: 120 }}
+                    className={`text-4xl font-black transition-all ${
                       active === item
-                        ? "text-cyan-400 bg-cyan-500/10"
-                        : "text-slate-300 hover:bg-slate-800/60 hover:text-white"
+                        ? "text-gradient"
+                        : "text-slate-500 hover:text-white"
                     }`}
+                    style={{ fontFamily: "Outfit, sans-serif" }}
                   >
                     {item}
                   </motion.button>
                 ))}
-                <a
-                  href="https://github.com/ebrahim-code"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-3 rounded-xl text-slate-300 hover:text-cyan-400 transition-colors font-medium"
+                
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ delay: links.length * 0.1 + 0.2 }}
+                  className="mt-8 pt-8 border-t border-slate-800 w-full flex justify-center gap-6"
                 >
-                  <FaGithub size={16} /> GitHub
-                </a>
+                  <a href="https://github.com/ebrahim-code" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
+                    <FaGithub size={24} />
+                  </a>
+                </motion.div>
               </div>
             </motion.div>
           )}

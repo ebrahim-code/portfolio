@@ -78,7 +78,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.8 }}
-            className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6"
+            className="text-[2.6rem] sm:text-6xl md:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6"
             style={{ fontFamily: "Outfit, sans-serif" }}
           >
             <span className="text-white">Building</span>

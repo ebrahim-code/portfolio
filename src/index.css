@@ -196,3 +196,33 @@ body {
   pointer-events: none;
   z-index: 0;
 }
+
+/* ── MOBILE OPTIMIZATIONS ──────────────────── */
+@media (max-width: 640px) {
+  html { -webkit-tap-highlight-color: transparent; }
+  
+  /* Centering Hero content for small screens */
+  #hero .flex-col { text-align: center; }
+  #hero h1 { font-size: 2.8rem; line-height: 1.1; }
+  
+  /* Optimized spacing for mobile sections */
+  section { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+  
+  /* Disable custom cursor on mobile for better usability */
+  .cursor-dot, .cursor-ring { display: none !important; }
+  
+  /* Better touch targets for buttons */
+  button, a { cursor: pointer; }
+  
+  /* Glassmorphism adjustment for performance */
+  .glass-card { backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+  
+  /* Navbar adjustments */
+  nav .px-6 { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+/* ── ADDITIONAL PREMIUM TOUCHES ─────────────── */
+.text-gradient-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}

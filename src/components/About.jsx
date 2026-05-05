@@ -174,7 +174,7 @@ const About = () => {
         </div>
 
         {/* ── Stats row ── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
           {stats.map((s, i) => (
             <motion.div
               key={s.label}
@@ -182,16 +182,16 @@ const About = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1, duration: 0.6, type: "spring" }}
               viewport={{ once: true }}
-              className="glass-card rounded-2xl p-6 text-center border border-slate-700/50 hover:border-cyan-500/40 transition-colors"
+              className="glass-card rounded-2xl p-4 md:p-6 text-center border border-slate-700/50 hover:border-cyan-500/40 transition-colors"
               whileHover={{ scale: 1.05 }}
             >
               <div
-                className="text-4xl font-black text-gradient mb-2"
+                className="text-2xl md:text-4xl font-black text-gradient mb-1 md:mb-2"
                 style={{ fontFamily: "Outfit, sans-serif" }}
               >
                 <CountUp target={s.value} suffix={s.suffix} inView={inView} />
               </div>
-              <div className="text-sm text-slate-500 whitespace-pre-line leading-tight">{s.label}</div>
+              <div className="text-[10px] md:text-sm text-slate-500 whitespace-pre-line leading-tight uppercase tracking-wider">{s.label}</div>
             </motion.div>
           ))}
         </div>
