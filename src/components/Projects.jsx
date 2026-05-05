@@ -353,16 +353,41 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Grid */}
+        {/* Projects grid / Carousel on mobile */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar gap-6 md:gap-8 pb-10 md:pb-0 md:grid-cols-2 lg:grid-cols-3"
         >
           <AnimatePresence mode="popLayout">
-            {visible.map((project) => (
-              <ProjectCard key={project.id} project={project} onExpand={setLightbox} />
+            {visible.map((project, i) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="min-w-[85vw] md:min-w-0 snap-center"
+              >
+                <ProjectCard project={project} onExpand={setLightbox} />
+              </motion.div>
             ))}
           </AnimatePresence>
+        </motion.div>
+
+        {/* Mobile Swipe Hint */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          className="md:hidden flex items-center justify-center gap-2 mt-4 text-slate-500 text-xs font-medium uppercase tracking-[0.2em]"
+        >
+          <span>Swipe to explore</span>
+          <motion.div
+            animate={{ x: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          >
+            →
+          </motion.div>
         </motion.div>
 
         {/* Show more */}
