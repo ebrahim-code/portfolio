@@ -17,23 +17,6 @@ const timeline = [
   { year: "Dec 2025", title: "Academic Leadership", desc: "Joined Wollo University's KIOT as a Technical Assistant, mentoring students and optimizing engineering streams." },
 ];
 
-function CountUp({ target, suffix, inView }) {
-  const ref = useRef(null);
-  useEffect(() => {
-    if (!inView) return;
-    const el = ref.current;
-    let start = 0;
-    const step = Math.ceil(target / 40);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) { start = target; clearInterval(timer); }
-      el.textContent = start + suffix;
-    }, 40);
-    return () => clearInterval(timer);
-  }, [inView, target, suffix]);
-  return <span ref={ref}>0{suffix}</span>;
-}
-
 const About = () => {
   const sectionRef = useRef(null);
   const inView     = useInView(sectionRef, { once: true, amount: 0.2 });
@@ -189,7 +172,7 @@ const About = () => {
                 className="text-2xl md:text-4xl font-black text-gradient mb-1 md:mb-2"
                 style={{ fontFamily: "Outfit, sans-serif" }}
               >
-                <CountUp target={s.value} suffix={s.suffix} inView={inView} />
+                {s.value}{s.suffix}
               </div>
               <div className="text-[10px] md:text-sm text-slate-500 whitespace-pre-line leading-tight uppercase tracking-wider">{s.label}</div>
             </motion.div>
