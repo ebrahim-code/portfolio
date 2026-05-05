@@ -11,6 +11,8 @@ const Navbar = () => {
   const [progress, setProgress]   = useState(0);
   const [active, setActive]       = useState("");
 
+  const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   /* ── dark mode ── */
   useEffect(() => {
     const saved = localStorage.getItem("darkMode") === "true";
