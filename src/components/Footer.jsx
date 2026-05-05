@@ -43,11 +43,8 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-2 justify-center md:justify-start mb-3">
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm text-white"
-                style={{ background: "linear-gradient(135deg,#06b6d4,#a855f7)" }}
-              >
-                EW
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg border border-slate-700/50">
+                <img src="/images/profile.jpg" alt="EW" className="w-full h-full object-cover" />
               </div>
               <span
                 className="text-xl font-black text-gradient"

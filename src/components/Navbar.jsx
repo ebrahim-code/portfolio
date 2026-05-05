@@ -69,23 +69,20 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <motion.a
-            href="#"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-            className="flex items-center gap-2 group"
-            whileHover={{ scale: 1.04 }}
-          >
-            <div className="w-9 h-9 rounded-xl flex items-center justify-center font-black text-sm text-white"
-              style={{ background: "linear-gradient(135deg, #06b6d4, #a855f7)" }}>
-              EW
-            </div>
+          <div className="flex items-center gap-2 group cursor-pointer" onClick={scrollTop}>
+            <motion.div
+              className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-lg shadow-cyan-500/20 border border-slate-700/50"
+              whileHover={{ rotate: 5, scale: 1.1 }}
+            >
+              <img src="/images/profile.jpg" alt="EW" className="w-full h-full object-cover" />
+            </motion.div>
             <span
               className="text-xl font-black text-gradient hidden sm:block"
               style={{ fontFamily: "Outfit, sans-serif" }}
             >
               Ebrahim Worke
             </span>
-          </motion.a>
+          </div>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-1">
