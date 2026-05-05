@@ -1,144 +1,269 @@
 import { motion } from "framer-motion";
-import Particles from "react-tsparticles";
 import { TypeAnimation } from "react-type-animation";
+import { FaGithub, FaDownload, FaArrowDown } from "react-icons/fa";
+import { HiMail } from "react-icons/hi";
+import ParticleBackground from "./ParticleBackground";
+
+const stats = [
+  { value: "3+", label: "Years Experience" },
+  { value: "20+", label: "Projects Built" },
+  { value: "10+", label: "Clients Served" },
+  { value: "5★", label: "Avg. Rating" },
+];
 
 const Hero = () => {
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.6, ease: "easeOut" }}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden font-sans pb-12 md:pb-0"
+    <section
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden font-sans"
+      id="hero"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-50 via-purple-50 to-pink-50 dark:from-gray-950 dark:via-indigo-950 dark:to-purple-950 transition-colors duration-500" />
+      {/* Dark gradient background */}
+      <div className="absolute inset-0 bg-slate-950 dark:bg-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/40 via-slate-950 to-purple-950/40" />
 
-      {/* Particles */}
-      <Particles
-        id="tsparticles"
-        className="absolute inset-0 z-0"
-        options={{
-          fpsLimit: 90,
-          particles: {
-            number: { value: 60, density: { enable: true, value_area: 1200 } },
-            color: { value: ["#4fc3f7", "#ab47bc", "#f06292", "#ffffff"] },
-            shape: { type: "circle" },
-            opacity: { value: 0.45, random: true, anim: { enable: true, speed: 1, opacity_min: 0.15 } },
-            size: { value: 3, random: true },
-            line_linked: {
-              enable: true,
-              distance: 180,
-              color: "#4fc3f7",
-              opacity: 0.3,
-              width: 1,
-            },
-            move: { enable: true, speed: 1.2, direction: "none", random: true, out_mode: "out" },
-          },
-          interactivity: {
-            events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" } },
-            modes: { grab: { distance: 200, line_linked: { opacity: 0.6 } }, push: { quantity: 4 } },
-          },
-          detectRetina: true,
-        }}
-      />
+      {/* Canvas particles */}
+      <ParticleBackground count={75} />
 
       {/* Floating orbs */}
       <motion.div
-        className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] md:w-[600px] md:h-[600px] bg-cyan-200/40 dark:bg-cyan-900/30 rounded-full blur-3xl"
-        animate={{ x: ["0%", "30%", "-20%", "0%"], y: ["0%", "-40%", "20%", "0%"], scale: [1, 1.15, 0.9, 1] }}
-        transition={{ duration: 20, repeat: Infinity, repeatType: "reverse" }}
+        className="absolute top-[-8%] left-[-8%] w-[500px] h-[500px] rounded-full bg-cyan-500/10 blur-[120px]"
+        animate={{ x: ["0%","25%","-15%","0%"], y: ["0%","-30%","20%","0%"] }}
+        transition={{ duration: 22, repeat: Infinity, repeatType: "reverse" }}
       />
       <motion.div
-        className="absolute bottom-[-15%] right-[-15%] w-[600px] h-[600px] md:w-[700px] md:h-[700px] bg-purple-200/30 dark:bg-purple-900/30 rounded-full blur-3xl"
-        animate={{ x: ["0%", "-25%", "15%", "0%"], y: ["0%", "35%", "-30%", "0%"], scale: [1, 1.2, 0.85, 1] }}
-        transition={{ duration: 24, repeat: Infinity, repeatType: "reverse" }}
+        className="absolute bottom-[-10%] right-[-8%] w-[600px] h-[600px] rounded-full bg-purple-500/10 blur-[130px]"
+        animate={{ x: ["0%","-20%","12%","0%"], y: ["0%","25%","-20%","0%"] }}
+        transition={{ duration: 26, repeat: Infinity, repeatType: "reverse" }}
+      />
+      <motion.div
+        className="absolute top-[40%] left-[50%] w-[300px] h-[300px] rounded-full bg-pink-500/8 blur-[100px]"
+        animate={{ scale: [1, 1.3, 1] }}
+        transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
       />
 
       {/* Main content */}
-      <div className="container mx-auto px-6 md:px-10 lg:px-16 relative z-20 flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-10 md:gap-12 lg:gap-20 max-w-7xl py-12 md:py-0">
-        {/* Photo – on mobile it's first */}
-        <motion.div
-          className="w-full lg:w-5/12 flex justify-center order-1 lg:order-2"
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.3 }}
-        >
-          <div className="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px]">
-            <div className="absolute inset-0 bg-gradient-to-br from-cyan-300 to-purple-300 dark:from-cyan-800 dark:to-purple-800 rounded-full blur-3xl opacity-50 animate-pulse-slow" />
-            <motion.img
-              src="/images/profile.jpg"
-              alt="Ebrahim Worke"
-              className="relative w-full h-full object-cover rounded-full border-8 border-white/70 dark:border-gray-800/70 shadow-2xl"
-              whileHover={{ scale: 1.08, boxShadow: "0 0 90px rgba(79,195,247,0.5) dark:rgba(34,211,238,0.6)" }}
-            />
-          </div>
-        </motion.div>
+      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 md:px-10 pt-24 pb-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
-        {/* Text – on mobile it's below the photo */}
+        {/* ── LEFT: Text ── */}
         <motion.div
-          className="w-full lg:w-7/12 text-center lg:text-left order-2 lg:order-1"
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.5 }}
+          className="flex-1 text-center lg:text-left"
+          initial={{ opacity: 0, x: -60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <motion.h2
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-slate-800 dark:text-slate-100"
+          {/* Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-cyan-500/30 text-cyan-400 glass"
+          >
+            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            Available for freelance & collaboration
+          </motion.div>
+
+          {/* Greeting */}
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
+            transition={{ delay: 0.45 }}
+            className="text-lg md:text-xl text-slate-400 font-medium mb-3"
           >
-            Hey, I'm Ebrahim Worke
-          </motion.h2>
+            Hey, I'm{" "}
+            <span className="text-white font-semibold">Ebrahim Worke</span> 👋
+          </motion.p>
 
+          {/* Main heading */}
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-5 md:mb-6 tracking-tight bg-gradient-to-r from-cyan-600 to-purple-600 dark:from-cyan-400 dark:to-purple-400 bg-clip-text text-transparent"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.0 }}
+            transition={{ delay: 0.55, duration: 0.8 }}
+            className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6"
+            style={{ fontFamily: "Outfit, sans-serif" }}
           >
-            Building the Future
+            <span className="text-white">Building</span>
+            <br />
+            <span className="text-gradient-shimmer">the Future</span>
           </motion.h1>
 
+          {/* Type animation */}
           <motion.div
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl mb-8 md:mb-10 font-semibold text-slate-700 dark:text-slate-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
+            transition={{ delay: 0.75 }}
+            className="text-xl md:text-2xl text-slate-400 font-medium mb-10 h-9"
           >
             I craft{" "}
             <TypeAnimation
               sequence={[
-                "immersive web apps",
-                1600,
-                "smart IoT experiences",
-                1600,
-                "creative digital worlds",
-                1600,
-                "impactful solutions",
-                1600,
+                "immersive web apps",  1800,
+                "smart IoT systems",   1800,
+                "creative digital art",1800,
+                "scalable backends",   1800,
               ]}
               wrapper="span"
               speed={55}
               repeat={Infinity}
-              className="font-extrabold bg-gradient-to-r from-cyan-600 to-purple-600 dark:from-cyan-400 dark:to-purple-400 bg-clip-text text-transparent"
+              className="font-bold text-gradient"
             />
           </motion.div>
 
-          <motion.a
-            href="#projects"
-            className="group relative inline-flex items-center justify-center px-8 sm:px-10 md:px-12 py-4 md:py-5 text-lg md:text-xl font-bold text-white bg-gradient-to-r from-cyan-500 to-purple-600 dark:from-cyan-600 dark:to-purple-700 rounded-full shadow-xl hover:shadow-2xl transition-all"
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
-            initial={{ opacity: 0, y: 30 }}
+          {/* CTA buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4 }}
+            transition={{ delay: 0.9 }}
+            className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12"
           >
-            <span className="relative z-10">Explore My Universe</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-purple-700 dark:from-cyan-700 dark:to-purple-800 rounded-full scale-0 group-hover:scale-150 transition-transform duration-500" />
-          </motion.a>
+            {/* Primary */}
+            <motion.a
+              href="#projects"
+              onClick={(e) => { e.preventDefault(); document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }}
+              className="btn-glow inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-white text-base shadow-lg shadow-cyan-500/25 transition-all duration-300"
+              style={{ background: "linear-gradient(135deg, #06b6d4, #a855f7)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(6,182,212,.35)" }}
+              whileTap={{ scale: 0.97 }}
+            >
+              View My Work
+            </motion.a>
+
+            {/* Secondary */}
+            <motion.a
+              href="mailto:ebrahimworkie@gmail.com"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-slate-300 text-base border border-slate-600 hover:border-cyan-500 hover:text-cyan-400 transition-all duration-300 glass"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <HiMail size={18} /> Hire Me
+            </motion.a>
+
+            {/* Resume Download */}
+            <motion.a
+              href="#"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-slate-300 text-base border border-slate-600 hover:border-purple-500 hover:text-purple-400 transition-all duration-300 glass"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <FaDownload size={16} /> Download CV
+            </motion.a>
+
+            {/* GitHub */}
+            <motion.a
+              href="https://github.com/ebrahim-code"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-4 rounded-2xl font-bold text-slate-400 text-base border border-slate-700 hover:border-slate-500 hover:text-white transition-all duration-300 glass"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <FaGithub size={18} />
+            </motion.a>
+          </motion.div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.05 }}
+            className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-lg mx-auto lg:mx-0"
+          >
+            {stats.map((s, i) => (
+              <motion.div
+                key={s.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.1 + i * 0.1 }}
+                className="glass rounded-2xl p-4 text-center border border-slate-700/50 hover:border-cyan-500/40 transition-colors"
+              >
+                <div
+                  className="text-2xl font-black text-gradient mb-1"
+                  style={{ fontFamily: "Outfit, sans-serif" }}
+                >
+                  {s.value}
+                </div>
+                <div className="text-xs text-slate-500 font-medium leading-tight">{s.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
+        {/* ── RIGHT: Photo ── */}
+        <motion.div
+          className="flex-shrink-0 flex justify-center"
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[420px] lg:h-[420px]">
+            {/* Morphing blob background */}
+            <motion.div
+              className="absolute inset-[-8%] animate-morph"
+              style={{
+                background: "linear-gradient(135deg, rgba(6,182,212,.3), rgba(168,85,247,.3), rgba(236,72,153,.2))",
+                filter: "blur(20px)",
+              }}
+            />
+
+            {/* Spinning ring */}
+            <motion.div
+              className="absolute inset-[-4px] rounded-full border-2 border-dashed border-cyan-500/30 animate-spin-slow"
+            />
+            <motion.div
+              className="absolute inset-[-16px] rounded-full border border-purple-500/20 animate-spin-slow"
+              style={{ animationDirection: "reverse", animationDuration: "30s" }}
+            />
+
+            {/* Glow ring */}
+            <div className="absolute inset-0 rounded-full animate-glow-pulse" />
+
+            {/* Profile image */}
+            <motion.img
+              src="/images/profile.jpg"
+              alt="Ebrahim Worke"
+              className="relative w-full h-full object-cover rounded-full border-4 border-slate-800 shadow-2xl z-10"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            />
+
+            {/* Floating badge */}
+            <motion.div
+              className="absolute -bottom-4 -right-4 glass rounded-2xl px-4 py-2 border border-slate-700 z-20"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="text-xs text-slate-400 font-medium">Full-Stack</div>
+              <div className="text-sm font-bold text-white">Developer ⚡</div>
+            </motion.div>
+
+            <motion.div
+              className="absolute -top-4 -left-4 glass rounded-2xl px-4 py-2 border border-slate-700 z-20"
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            >
+              <div className="text-xs text-slate-400 font-medium">Computer</div>
+              <div className="text-sm font-bold text-cyan-400">Engineering 💻</div>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
-    </motion.section>
+
+      {/* Scroll indicator */}
+      <motion.div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        <span className="text-xs text-slate-600 tracking-widest uppercase">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.4, repeat: Infinity, ease: "easeInOut" }}
+          className="text-slate-600"
+        >
+          <FaArrowDown size={14} />
+        </motion.div>
+      </motion.div>
+    </section>
   );
 };
 

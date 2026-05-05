@@ -1,34 +1,42 @@
 import { useState, useEffect } from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Skills from "./components/Skills";
+import { AnimatePresence } from "framer-motion";
+import Navbar   from "./components/Navbar";
+import Hero     from "./components/Hero";
+import About    from "./components/About";
+import Skills   from "./components/Skills";
 import Projects from "./components/Projects";
-import Contact from "./components/Contact";
-import FollowMe from "./components/FollowMe";
-import Footer from "./components/Footer";
-import Loading from "./components/Loading";
+import Contact  from "./components/Contact";
+import Footer   from "./components/Footer";
+import Loading  from "./components/Loading";
+import CursorFollower from "./components/CursorFollower";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setIsLoading(false), 2000);
+    // Match loading animation duration (≈ 2.2 s)
+    const t = setTimeout(() => setIsLoading(false), 2200);
+    return () => clearTimeout(t);
   }, []);
 
   return (
     <div className="App">
-      {isLoading ? (
-        <Loading />
-      ) : (
+      <CursorFollower />
+
+      <AnimatePresence mode="wait">
+        {isLoading && <Loading key="loading" />}
+      </AnimatePresence>
+
+      {!isLoading && (
         <>
           <Navbar />
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <FollowMe />
-          <Contact />
+          <main>
+            <Hero />
+            <About />
+            <Skills />
+            <Projects />
+            <Contact />
+          </main>
           <Footer />
         </>
       )}

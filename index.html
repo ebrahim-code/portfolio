@@ -1,13 +1,49 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpg" href="/images/background.jpg" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EbrahimWorkie.com</title>
+
+    <!-- SEO -->
+    <title>Ebrahim Worke | Full-Stack Developer & Computer Engineer</title>
+    <meta name="description" content="Ebrahim Worke — Full-stack developer and Computer Engineer building immersive web apps, smart systems, and creative digital experiences. Available for freelance & collaboration." />
+    <meta name="keywords" content="Ebrahim Worke, Full Stack Developer, Computer Engineer, React Developer, Ethiopia, Portfolio, Web Development" />
+    <meta name="author" content="Ebrahim Worke" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ebrahim Worke | Full-Stack Developer & Computer Engineer" />
+    <meta property="og:description" content="Building the future with React, Node.js, and intelligent systems." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/images/profile.jpg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ebrahim Worke | Full-Stack Developer" />
+    <meta name="twitter:description" content="Full-stack developer & Computer Engineer from Ethiopia." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpg" href="/images/profile.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Default to dark mode -->
+    <script>
+      (function () {
+        const saved = localStorage.getItem("darkMode");
+        if (saved === null || saved === "true") {
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("darkMode", "true");
+        }
+      })();
+    </script>
   </head>
-  <body>
+  <body style="background:#020617; margin:0;">
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
