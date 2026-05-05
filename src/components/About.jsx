@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { FaDownload } from "react-icons/fa";
 
 const stats = [
   { value: 3,  suffix: "+", label: "Years\nExperience" },
@@ -154,6 +155,19 @@ const About = () => {
                     🎓 Mentorship: Shaping the next gen at Wollo University
                   </p>
                 </div>
+              </div>
+
+              <div className="pt-4">
+                <motion.a
+                  href="/images/Ebrahim Workie CV.pdf"
+                  download="Ebrahim_Workie_CV.pdf"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-white text-sm shadow-lg shadow-purple-500/20 transition-all"
+                  style={{ background: "linear-gradient(135deg,#a855f7,#ec4899)" }}
+                  whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(168,85,247,0.3)" }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <FaDownload size={14} /> Download CV (PDF)
+                </motion.a>
               </div>
             </div>
           </motion.div>

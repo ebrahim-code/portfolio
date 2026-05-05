@@ -139,7 +139,8 @@ const Hero = () => {
 
             {/* Resume Download */}
             <motion.a
-              href="#"
+              href="/images/Ebrahim Workie CV.pdf"
+              download="Ebrahim_Workie_CV.pdf"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-slate-300 text-base border border-slate-600 hover:border-purple-500 hover:text-purple-400 transition-all duration-300 glass"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
