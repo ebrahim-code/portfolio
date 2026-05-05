@@ -68,18 +68,17 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Navigation</p>
-            <ul className="space-y-2">
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-x-6 gap-y-3 md:flex-col md:gap-2">
               {navLinks.map((l) => (
-                <li key={l.id}>
-                  <button
-                    onClick={() => document.getElementById(l.id)?.scrollIntoView({ behavior: "smooth" })}
-                    className="text-slate-400 text-sm hover:text-cyan-400 transition-colors font-medium"
-                  >
-                    {l.label}
-                  </button>
-                </li>
+                <button
+                  key={l.id}
+                  onClick={() => document.getElementById(l.id)?.scrollIntoView({ behavior: "smooth" })}
+                  className="text-slate-400 text-sm hover:text-cyan-400 transition-colors font-medium"
+                >
+                  {l.label}
+                </button>
               ))}
-            </ul>
+            </div>
           </motion.div>
 
           {/* ── Socials ── */}
