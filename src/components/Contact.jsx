@@ -67,9 +67,9 @@ const Contact = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true, amount: 0.1 }}
-      className="relative py-24 md:py-32 overflow-hidden bg-slate-900"
+      className="relative py-24 md:py-32 overflow-hidden bg-slate-50 dark:bg-slate-900 transition-colors duration-500"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 transition-all duration-500" />
       <div className="absolute top-0 left-0 right-0 h-px section-divider" />
       <div className="absolute bottom-0 left-0 right-0 h-px section-divider" />
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] rounded-full bg-cyan-500/5 blur-[100px]" />
@@ -85,15 +85,15 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="text-pink-400 text-sm font-semibold tracking-[0.25em] uppercase mb-3">Let's work together</p>
+          <p className="text-pink-600 dark:text-pink-400 text-sm font-semibold tracking-[0.25em] uppercase mb-3">Let's work together</p>
           <h2
-            className="text-5xl md:text-6xl font-black text-white mb-4"
+            className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white mb-4 transition-colors"
             style={{ fontFamily: "Outfit, sans-serif" }}
           >
             Get in <span className="text-gradient">Touch</span>
           </h2>
           <div className="w-24 h-1 rounded-full mx-auto" style={{ background: "linear-gradient(90deg,#ec4899,#a855f7)" }} />
-          <p className="text-slate-400 mt-5 max-w-xl mx-auto text-lg leading-relaxed">
+          <p className="text-slate-600 dark:text-slate-400 mt-5 max-w-xl mx-auto text-lg leading-relaxed">
             Whether it's a project, collaboration, or just a hello — I'd love to hear from you!
           </p>
         </motion.div>
@@ -117,7 +117,7 @@ const Contact = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.12 }}
                   viewport={{ once: true }}
-                  className="glass-card rounded-2xl p-5 flex items-center gap-4 border border-slate-700/50 hover:border-cyan-500/40 transition-all duration-300 group"
+                  className="glass-card rounded-2xl p-5 flex items-center gap-4 border border-slate-200 dark:border-slate-700/50 hover:border-cyan-500/40 transition-all duration-300 group bg-white dark:bg-transparent"
                   whileHover={{ x: 6 }}
                 >
                   <div
@@ -127,13 +127,13 @@ const Contact = () => {
                     <Icon size={20} style={{ color: item.color }} />
                   </div>
                   <div>
-                    <p className="text-xs text-slate-500 font-medium uppercase tracking-wider mb-0.5">{item.label}</p>
+                    <p className="text-xs text-slate-400 dark:text-slate-500 font-medium uppercase tracking-wider mb-0.5">{item.label}</p>
                     {item.href ? (
-                      <a href={item.href} className="text-slate-200 font-semibold hover:text-cyan-400 transition-colors text-sm">
+                      <a href={item.href} className="text-slate-700 dark:text-slate-200 font-semibold hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors text-sm">
                         {item.value}
                       </a>
                     ) : (
-                      <p className="text-slate-200 font-semibold text-sm">{item.value}</p>
+                      <p className="text-slate-700 dark:text-slate-200 font-semibold text-sm">{item.value}</p>
                     )}
                   </div>
                 </motion.div>
@@ -142,7 +142,7 @@ const Contact = () => {
 
             {/* Socials */}
             <motion.div
-              className="glass-card rounded-2xl p-6 border border-slate-700/50"
+              className="glass-card rounded-2xl p-6 border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-transparent"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -159,7 +159,7 @@ const Contact = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       title={s.label}
-                      className="w-10 h-10 rounded-xl flex items-center justify-center border border-slate-700 hover:border-slate-500 transition-all"
+                      className="w-10 h-10 rounded-xl flex items-center justify-center border border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 transition-all bg-white dark:bg-transparent shadow-sm"
                       style={{ color: s.color }}
                       whileHover={{ scale: 1.15, y: -3 }}
                       whileTap={{ scale: 0.9 }}
@@ -180,7 +180,7 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div className="glass-card rounded-2xl p-8 md:p-10 border border-slate-700/50 relative overflow-hidden">
+            <div className="glass-card rounded-2xl p-8 md:p-10 border border-slate-200 dark:border-slate-700/50 relative overflow-hidden bg-white dark:bg-transparent">
               {/* Glow accent */}
               <div className="absolute -top-20 -right-20 w-40 h-40 rounded-full bg-cyan-500/10 blur-[60px]" />
 
@@ -200,8 +200,8 @@ const Contact = () => {
                     >
                       <FaCheckCircle size={56} className="text-cyan-400" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold text-white">Message Sent!</h3>
-                    <p className="text-slate-400 text-center">Thank you! I'll get back to you within 24–48 hours.</p>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Message Sent!</h3>
+                    <p className="text-slate-600 dark:text-slate-400 text-center">Thank you! I'll get back to you within 24–48 hours.</p>
                   </motion.div>
                 ) : (
                   <motion.form
@@ -220,7 +220,7 @@ const Contact = () => {
                           name="name"
                           required
                           placeholder="Your full name"
-                          className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all"
+                          className="w-full bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all"
                         />
                       </div>
                       <div>
@@ -230,7 +230,7 @@ const Contact = () => {
                           name="email"
                           required
                           placeholder="your@email.com"
-                          className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all"
+                          className="w-full bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all"
                         />
                       </div>
                     </div>
@@ -241,7 +241,7 @@ const Contact = () => {
                         type="text"
                         name="subject"
                         placeholder="What's this about?"
-                        className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all"
+                        className="w-full bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all"
                       />
                     </div>
 
@@ -252,7 +252,7 @@ const Contact = () => {
                         required
                         rows={5}
                         placeholder="Tell me about your project or idea..."
-                        className="w-full bg-slate-800/60 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all resize-none"
+                        className="w-full bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-600 text-sm focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500/30 transition-all resize-none"
                       />
                     </div>
 

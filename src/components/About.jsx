@@ -29,10 +29,10 @@ const About = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true, amount: 0.1 }}
-      className="relative py-24 md:py-32 overflow-hidden bg-slate-950"
+      className="relative py-24 md:py-32 overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-500"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-all duration-500" />
       <div className="absolute top-0 left-0 right-0 h-px section-divider" />
       <div className="absolute bottom-0 left-0 right-0 h-px section-divider" />
       <div className="absolute top-1/2 left-[-10%] w-[400px] h-[400px] rounded-full bg-cyan-500/5 blur-[100px]" />
@@ -48,9 +48,9 @@ const About = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="text-cyan-400 text-sm font-semibold tracking-[0.25em] uppercase mb-3">Get to know me</p>
+          <p className="text-cyan-500 dark:text-cyan-400 text-sm font-semibold tracking-[0.25em] uppercase mb-3">Get to know me</p>
           <h2
-            className="text-5xl md:text-6xl font-black text-white mb-4"
+            className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white mb-4 transition-colors"
             style={{ fontFamily: "Outfit, sans-serif" }}
           >
             About <span className="text-gradient">Me</span>
@@ -74,7 +74,7 @@ const About = () => {
               <motion.img
                 src="/images/b3.jpg"
                 alt="Ebrahim Worke"
-                className="relative w-full aspect-[4/5] object-cover rounded-3xl shadow-2xl border border-slate-700/50 z-10"
+                className="relative w-full aspect-[4/5] object-cover rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700/50 z-10"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 200 }}
                 onError={(e) => { e.currentTarget.src = "https://via.placeholder.com/420x560?text=Ebrahim"; }}
@@ -99,24 +99,24 @@ const About = () => {
             transition={{ duration: 0.9, delay: 0.3 }}
             viewport={{ once: true }}
           >
-            <div className="glass-card rounded-2xl p-8 md:p-10 border border-slate-700/50 space-y-6">
-              <p className="text-lg md:text-xl leading-relaxed text-slate-300">
-                I am a <span className="font-bold text-cyan-400">Visionary Computer Engineer</span> and 
-                <span className="font-bold text-purple-400"> Full-Stack Architect</span> dedicated to building the 
+            <div className="glass-card rounded-2xl p-8 md:p-10 border border-slate-200 dark:border-slate-700/50 space-y-6">
+              <p className="text-lg md:text-xl leading-relaxed text-slate-700 dark:text-slate-300 transition-colors">
+                I am a <span className="font-bold text-cyan-600 dark:text-cyan-400">Visionary Computer Engineer</span> and 
+                <span className="font-bold text-purple-600 dark:text-purple-400"> Full-Stack Architect</span> dedicated to building the 
                 digital-physical bridges of tomorrow.
               </p>
-              <p className="text-lg leading-relaxed text-slate-400">
-                With a solid academic foundation from <span className="font-semibold text-white text-gradient">Jimma University</span> (Class of 2025) in 
-                <span className="font-semibold text-white"> Electrical & Computer Engineering</span>, I specialize in 
+              <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                With a solid academic foundation from <span className="font-semibold text-slate-900 dark:text-white text-gradient">Jimma University</span> (Class of 2025) in 
+                <span className="font-semibold text-slate-800 dark:text-white"> Electrical & Computer Engineering</span>, I specialize in 
                 transforming complex hardware-software intersections into elegant, high-performance solutions.
               </p>
-              <p className="text-lg leading-relaxed text-slate-400">
-                Currently, I serve as a <span className="font-semibold text-cyan-400">Technical Assistant</span> at 
-                <span className="font-semibold text-purple-400"> Wollo University's KIOT</span>, where I mentor future engineers 
+              <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                Currently, I serve as a <span className="font-semibold text-cyan-600 dark:text-cyan-400">Technical Assistant</span> at 
+                <span className="font-semibold text-purple-600 dark:text-purple-400"> Wollo University's KIOT</span>, where I mentor future engineers 
                 and lead technical operations in the Computer Engineering stream.
               </p>
-              <p className="text-lg leading-relaxed text-slate-400">
-                My philosophy is simple: <strong className="text-white">Code must solve real-world problems.</strong> 
+              <p className="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
+                My philosophy is simple: <strong className="text-slate-900 dark:text-white">Code must solve real-world problems.</strong> 
                 Whether it's crafting immersive web experiences with JavaScript or architecting intelligent IoT 
                 ecosystems, I thrive on the synergy between pure logic and physical impact.
               </p>
@@ -165,7 +165,7 @@ const About = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.1, duration: 0.6, type: "spring" }}
               viewport={{ once: true }}
-              className="glass-card rounded-2xl p-4 md:p-6 text-center border border-slate-700/50 hover:border-cyan-500/40 transition-colors"
+              className="glass-card rounded-2xl p-4 md:p-6 text-center border border-slate-200 dark:border-slate-700/50 hover:border-cyan-500/40 transition-colors"
               whileHover={{ scale: 1.05 }}
             >
               <div
@@ -187,7 +187,7 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h3
-            className="text-3xl font-black text-white text-center mb-10"
+            className="text-3xl font-black text-slate-900 dark:text-white text-center mb-10 transition-colors"
             style={{ fontFamily: "Outfit, sans-serif" }}
           >
             My <span className="text-gradient">Journey</span>
@@ -210,10 +210,10 @@ const About = () => {
                 >
                   {/* Card */}
                   <div className={`pl-12 md:pl-0 w-full md:w-[45%] ${i % 2 === 0 ? "md:pr-10 md:text-right" : "md:pl-10 md:text-left"}`}>
-                    <div className="glass-card rounded-2xl p-5 border border-slate-700/50 hover:border-cyan-500/30 transition-colors">
-                      <span className="text-xs font-bold text-cyan-400 tracking-widest uppercase">{item.year}</span>
-                      <h4 className="text-lg font-bold text-white mt-1 mb-2">{item.title}</h4>
-                      <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+                    <div className="glass-card rounded-2xl p-5 border border-slate-200 dark:border-slate-700/50 hover:border-cyan-500/30 transition-colors">
+                      <span className="text-xs font-bold text-cyan-600 dark:text-cyan-400 tracking-widest uppercase">{item.year}</span>
+                      <h4 className="text-lg font-bold text-slate-900 dark:text-white mt-1 mb-2">{item.title}</h4>
+                      <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
 

@@ -9,7 +9,7 @@ const Loading = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, scale: 1.05 }}
       transition={{ duration: 0.7, ease: "easeInOut" }}
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950 overflow-hidden"
+      className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-white dark:bg-slate-950 overflow-hidden transition-colors duration-500"
     >
       {/* Ambient blobs */}
       <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-cyan-600/20 blur-[120px] animate-morph" />
@@ -28,7 +28,7 @@ const Loading = () => {
           animate={{ rotate: 360 }}
           transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
         >
-          <div className="w-full h-full rounded-full bg-slate-950" />
+          <div className="w-full h-full rounded-full bg-white dark:bg-slate-950 transition-colors" />
         </motion.div>
 
         {/* Pulse ring */}
@@ -69,7 +69,7 @@ const Loading = () => {
             }}
             className={`text-xl font-semibold tracking-widest ${
               char === " " ? "w-3" : ""
-            } text-slate-200`}
+            } text-slate-800 dark:text-slate-200 transition-colors`}
             style={{ fontFamily: "Outfit, sans-serif" }}
           >
             {char === " " ? "\u00A0" : char}
@@ -82,13 +82,13 @@ const Loading = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.1, duration: 0.6 }}
-        className="text-sm text-slate-500 tracking-[0.3em] uppercase mb-10"
+        className="text-sm text-slate-400 dark:text-slate-500 tracking-[0.3em] uppercase mb-10 transition-colors"
       >
         Portfolio
       </motion.p>
 
       {/* Progress bar */}
-      <div className="w-48 h-[2px] bg-slate-800 rounded-full overflow-hidden">
+      <div className="w-48 h-[2px] bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden transition-colors">
         <motion.div
           className="h-full rounded-full"
           style={{

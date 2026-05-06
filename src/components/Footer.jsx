@@ -23,7 +23,7 @@ const Footer = () => {
   const scrollTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="relative bg-slate-950 overflow-hidden">
+    <footer className="relative bg-slate-50 dark:bg-slate-950 overflow-hidden transition-colors duration-500">
       {/* Top gradient line */}
       <div className="h-px section-divider" />
 
@@ -43,7 +43,7 @@ const Footer = () => {
             viewport={{ once: true }}
           >
             <div className="flex items-center gap-2 justify-center md:justify-start mb-3">
-              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg border border-slate-700/50">
+              <div className="w-10 h-10 rounded-xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700/50">
                 <img src="/images/profile.jpg" alt="EW" className="w-full h-full object-cover" />
               </div>
               <span
@@ -73,7 +73,7 @@ const Footer = () => {
                 <button
                   key={l.id}
                   onClick={() => document.getElementById(l.id)?.scrollIntoView({ behavior: "smooth" })}
-                  className="text-slate-400 text-sm hover:text-cyan-400 transition-colors font-medium"
+                  className="text-slate-500 dark:text-slate-400 text-sm hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors font-medium"
                 >
                   {l.label}
                 </button>
@@ -100,7 +100,7 @@ const Footer = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     title={s.label}
-                    className="w-10 h-10 rounded-xl flex items-center justify-center glass-card border border-slate-700 hover:border-slate-500 transition-all"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center glass-card border border-slate-200 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-500 transition-all bg-white dark:bg-transparent"
                     style={{ color: s.color }}
                     whileHover={{ scale: 1.15, y: -3 }}
                     whileTap={{ scale: 0.9 }}
@@ -114,7 +114,7 @@ const Footer = () => {
         </div>
 
         {/* ── Bottom bar ── */}
-        <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
           <motion.p
             className="text-slate-600 text-sm text-center"
             initial={{ opacity: 0 }}

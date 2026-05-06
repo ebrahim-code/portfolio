@@ -15,9 +15,11 @@ const Navbar = () => {
 
   /* ── dark mode ── */
   useEffect(() => {
-    const saved = localStorage.getItem("darkMode") === "true";
-    setDark(saved);
-    document.documentElement.classList.toggle("dark", saved);
+    // Default to false (Light Mode) if no preference is found
+    const saved = localStorage.getItem("darkMode");
+    const isDark = saved === "true"; 
+    setDark(isDark);
+    document.documentElement.classList.toggle("dark", isDark);
   }, []);
 
   const toggleDark = () => {
@@ -92,10 +94,10 @@ const Navbar = () => {
               <button
                 key={item}
                 onClick={() => handleNav(item)}
-                className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-colors duration-200 ${
+                className={`relative px-4 py-2 text-sm font-bold rounded-lg transition-colors duration-200 ${
                   active === item
-                    ? "text-cyan-400"
-                    : "text-slate-400 hover:text-white"
+                    ? "text-cyan-600 dark:text-cyan-400"
+                    : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 }`}
               >
                 {item}
@@ -128,7 +130,7 @@ const Navbar = () => {
             {/* Dark toggle */}
             <motion.button
               onClick={toggleDark}
-              className="w-10 h-10 rounded-xl flex items-center justify-center border border-slate-700 text-slate-400 hover:border-cyan-500 hover:text-cyan-400 transition-all duration-300"
+              className="w-10 h-10 rounded-xl flex items-center justify-center border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300 bg-white dark:bg-transparent shadow-sm"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle dark mode"
@@ -153,7 +155,7 @@ const Navbar = () => {
             {/* Hamburger */}
             <motion.button
               onClick={() => setIsOpen((o) => !o)}
-              className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center border border-slate-700 text-slate-400"
+              className="md:hidden w-10 h-10 rounded-xl flex items-center justify-center border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 bg-white dark:bg-transparent shadow-sm"
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle menu"
             >
@@ -170,7 +172,7 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-40 md:hidden flex flex-col bg-slate-950/90 backdrop-blur-2xl"
+              className="fixed inset-0 z-40 md:hidden flex flex-col bg-white/95 dark:bg-slate-950/90 backdrop-blur-2xl"
             >
               <div className="flex-1 flex flex-col items-center justify-center gap-6 px-10">
                 {links.map((item, i) => (
@@ -184,7 +186,7 @@ const Navbar = () => {
                     className={`text-4xl font-black transition-all ${
                       active === item
                         ? "text-gradient"
-                        : "text-slate-500 hover:text-white"
+                        : "text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white"
                     }`}
                     style={{ fontFamily: "Outfit, sans-serif" }}
                   >

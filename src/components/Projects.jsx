@@ -173,7 +173,7 @@ function ProjectCard({ project, onExpand }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.5, type: "spring", stiffness: 120 }}
-      className="relative glass-card rounded-2xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/40 transition-all duration-300 group card-lift"
+      className="relative glass-card rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700/50 hover:border-cyan-500/40 transition-all duration-300 group card-lift bg-white dark:bg-transparent"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -245,17 +245,17 @@ function ProjectCard({ project, onExpand }) {
       {/* Content */}
       <div className="p-5">
         <h3
-          className="text-lg font-bold text-white mb-2 group-hover:text-gradient transition-colors"
+          className="text-lg font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-gradient transition-colors"
           style={{ fontFamily: "Outfit, sans-serif" }}
         >
           {project.name}
         </h3>
-        <p className="text-slate-400 text-sm leading-relaxed mb-4 line-clamp-2">{project.description}</p>
+        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4 line-clamp-2">{project.description}</p>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mb-4">
           {project.tags.map((t) => (
-            <span key={t} className="px-2.5 py-1 rounded-lg text-xs font-medium border border-slate-700 text-slate-400">
+            <span key={t} className="px-2.5 py-1 rounded-lg text-xs font-medium border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400">
               {t}
             </span>
           ))}
@@ -268,7 +268,7 @@ function ProjectCard({ project, onExpand }) {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-cyan-400 transition-colors"
+              className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
             >
               <FaGithub size={13} /> Code
             </a>
@@ -278,7 +278,7 @@ function ProjectCard({ project, onExpand }) {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 text-xs font-semibold text-slate-400 hover:text-purple-400 transition-colors"
+              className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors"
             >
               <FaExternalLinkAlt size={11} /> Live Demo
             </a>
@@ -304,9 +304,9 @@ const Projects = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true, amount: 0.1 }}
-      className="relative py-24 md:py-32 overflow-hidden bg-slate-950"
+      className="relative py-24 md:py-32 overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-500"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-slate-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-all duration-500" />
       <div className="absolute top-0 left-0 right-0 h-px section-divider" />
       <div className="absolute top-1/2 left-0 w-[350px] h-[350px] rounded-full bg-cyan-500/5 blur-[100px]" />
       <div className="absolute bottom-0 right-0 w-[350px] h-[350px] rounded-full bg-purple-500/5 blur-[100px]" />
@@ -320,9 +320,9 @@ const Projects = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="text-cyan-400 text-sm font-semibold tracking-[0.25em] uppercase mb-3">What I've built</p>
+          <p className="text-cyan-500 dark:text-cyan-400 text-sm font-semibold tracking-[0.25em] uppercase mb-3">What I've built</p>
           <h2
-            className="text-5xl md:text-6xl font-black text-white mb-4"
+            className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white mb-4 transition-colors"
             style={{ fontFamily: "Outfit, sans-serif" }}
           >
             My <span className="text-gradient">Projects</span>
@@ -339,7 +339,7 @@ const Projects = () => {
               className={`px-5 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${
                 filter === f
                   ? "text-white shadow-lg shadow-cyan-500/20"
-                  : "glass-card text-slate-400 hover:text-white border border-slate-700/50"
+                  : "glass-card text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-700/50 bg-white dark:bg-transparent"
               }`}
               style={filter === f ? { background: "linear-gradient(135deg,#06b6d4,#a855f7)" } : {}}
               whileHover={{ scale: 1.05 }}

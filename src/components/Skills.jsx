@@ -46,7 +46,7 @@ function SkillBar({ skill, delay = 0 }) {
           <span style={{ color: skill.color }}>
             {Icon ? <Icon size={18} /> : <span className="text-base">{skill.emoji}</span>}
           </span>
-          <span className="text-sm font-semibold text-slate-300 group-hover:text-white transition-colors">
+          <span className="text-sm font-semibold text-slate-600 dark:text-slate-300 group-hover:text-cyan-500 dark:group-hover:text-white transition-colors">
             {skill.name}
           </span>
         </div>
@@ -60,7 +60,7 @@ function SkillBar({ skill, delay = 0 }) {
           {skill.pct}%
         </motion.span>
       </div>
-      <div className="h-2 rounded-full bg-slate-800 overflow-hidden">
+      <div className="h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden shadow-inner">
         <motion.div
           className="h-full rounded-full"
           style={{
@@ -87,10 +87,10 @@ const Skills = () => {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1 }}
       viewport={{ once: true, amount: 0.1 }}
-      className="relative py-24 md:py-32 overflow-hidden bg-slate-900"
+      className="relative py-24 md:py-32 overflow-hidden bg-slate-50 dark:bg-slate-900 transition-colors duration-500"
     >
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900" />
+      <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-white dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 transition-all duration-500" />
       <div className="absolute top-0 left-0 right-0 h-px section-divider" />
       <div className="absolute top-1/3 right-0 w-[350px] h-[350px] rounded-full bg-purple-500/5 blur-[100px]" />
       <div className="absolute bottom-1/3 left-0 w-[350px] h-[350px] rounded-full bg-cyan-500/5 blur-[100px]" />
@@ -105,9 +105,9 @@ const Skills = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <p className="text-purple-400 text-sm font-semibold tracking-[0.25em] uppercase mb-3">What I work with</p>
+          <p className="text-purple-600 dark:text-purple-400 text-sm font-semibold tracking-[0.25em] uppercase mb-3">What I work with</p>
           <h2
-            className="text-5xl md:text-6xl font-black text-white mb-4"
+            className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white mb-4 transition-colors"
             style={{ fontFamily: "Outfit, sans-serif" }}
           >
             My <span className="text-gradient">Skills</span>
@@ -117,7 +117,7 @@ const Skills = () => {
 
         {/* Tabs */}
         <div className="flex justify-center mb-10">
-          <div className="flex gap-1 p-1 glass-card rounded-2xl border border-slate-700/50">
+          <div className="flex gap-1 p-1 glass-card rounded-2xl border border-slate-200 dark:border-slate-700/50 transition-colors">
             {TABS.map((tab) => (
               <button
                 key={tab}
@@ -125,7 +125,7 @@ const Skills = () => {
                 className={`px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${
                   activeTab === tab
                     ? "text-white shadow-lg"
-                    : "text-slate-400 hover:text-white"
+                    : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                 }`}
                 style={
                   activeTab === tab
@@ -166,7 +166,7 @@ const Skills = () => {
               {["REST APIs","JWT Auth","Socket.io","Docker","Linux","Sequelize","Prisma","Framer Motion","ESP32","Raspberry Pi"].map((tag) => (
                 <span
                   key={tag}
-                  className="px-4 py-1.5 rounded-full text-xs font-medium border border-slate-700 text-slate-400 hover:border-cyan-500/50 hover:text-cyan-400 transition-colors cursor-default"
+                  className="px-4 py-1.5 rounded-full text-xs font-medium border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:border-cyan-500/50 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors cursor-default bg-white dark:bg-transparent"
                 >
                   {tag}
                 </span>

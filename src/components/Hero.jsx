@@ -17,9 +17,9 @@ const Hero = () => {
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden font-sans"
       id="hero"
     >
-      {/* Dark gradient background */}
-      <div className="absolute inset-0 bg-slate-950 dark:bg-slate-950" />
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/40 via-slate-950 to-purple-950/40" />
+      {/* Background layer */}
+      <div className="absolute inset-0 bg-white dark:bg-slate-950 transition-colors duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-100/40 via-white to-purple-100/40 dark:from-cyan-950/40 dark:via-slate-950 dark:to-purple-950/40 transition-all duration-500" />
 
       {/* Canvas particles */}
       <ParticleBackground count={75} />
@@ -56,9 +56,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-cyan-500/30 text-cyan-400 glass"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium mb-6 border border-slate-200 dark:border-cyan-500/30 text-slate-600 dark:text-cyan-400 glass"
           >
-            <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
             Available for freelance & collaboration
           </motion.div>
 
@@ -67,10 +67,10 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.45 }}
-            className="text-lg md:text-xl text-slate-400 font-medium mb-3"
+            className="text-lg md:text-xl text-slate-500 dark:text-slate-400 font-medium mb-3"
           >
             Hey, I'm{" "}
-            <span className="text-white font-semibold">Ebrahim Worke</span> 👋
+            <span className="text-slate-900 dark:text-white font-semibold">Ebrahim Worke</span> 👋
           </motion.p>
 
           {/* Main heading */}
@@ -81,7 +81,7 @@ const Hero = () => {
             className="text-[2.6rem] sm:text-6xl md:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6"
             style={{ fontFamily: "Outfit, sans-serif" }}
           >
-            <span className="text-white">Building</span>
+            <span className="text-slate-900 dark:text-white transition-colors duration-500">Building</span>
             <br />
             <span className="text-gradient-shimmer">the Future</span>
           </motion.h1>
@@ -91,7 +91,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.75 }}
-            className="text-xl md:text-2xl text-slate-400 font-medium mb-10 h-9"
+            className="text-xl md:text-2xl text-slate-500 dark:text-slate-400 font-medium mb-10 h-9"
           >
             I craft{" "}
             <TypeAnimation
@@ -130,7 +130,7 @@ const Hero = () => {
             {/* Secondary */}
             <motion.a
               href="mailto:ebrahimworkie@gmail.com"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-slate-300 text-base border border-slate-600 hover:border-cyan-500 hover:text-cyan-400 transition-all duration-300 glass"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-slate-600 dark:text-slate-300 text-base border border-slate-200 dark:border-slate-600 hover:border-cyan-500 hover:text-cyan-600 dark:hover:text-cyan-400 transition-all duration-300 glass"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -141,7 +141,7 @@ const Hero = () => {
             <motion.a
               href="/images/Ebrahim Workie CV.pdf"
               download="Ebrahim_Workie_CV.pdf"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-slate-300 text-base border border-slate-600 hover:border-purple-500 hover:text-purple-400 transition-all duration-300 glass"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-bold text-slate-600 dark:text-slate-300 text-base border border-slate-200 dark:border-slate-600 hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300 glass"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
             >
@@ -174,7 +174,7 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.1 + i * 0.1 }}
-                className="glass rounded-2xl p-4 text-center border border-slate-700/50 hover:border-cyan-500/40 transition-colors"
+                className="glass rounded-2xl p-4 text-center border border-slate-200 dark:border-slate-700/50 hover:border-cyan-500/40 transition-colors"
               >
                 <div
                   className="text-2xl font-black text-gradient mb-1"
@@ -182,7 +182,7 @@ const Hero = () => {
                 >
                   {s.value}
                 </div>
-                <div className="text-xs text-slate-500 font-medium leading-tight">{s.label}</div>
+                <div className="text-xs text-slate-400 dark:text-slate-500 font-medium leading-tight">{s.label}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -221,28 +221,28 @@ const Hero = () => {
             <motion.img
               src="/images/profile.jpg"
               alt="Ebrahim Worke"
-              className="relative w-full h-full object-cover rounded-full border-4 border-slate-800 shadow-2xl z-10"
+              className="relative w-full h-full object-cover rounded-full border-4 border-white dark:border-slate-800 shadow-2xl z-10"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             />
 
             {/* Floating badge */}
             <motion.div
-              className="absolute -bottom-4 -right-4 glass rounded-2xl px-4 py-2 border border-slate-700 z-20"
+              className="absolute -bottom-4 -right-4 glass rounded-2xl px-4 py-2 border border-slate-200 dark:border-slate-700 z-20"
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
-              <div className="text-xs text-slate-400 font-medium">Full-Stack</div>
-              <div className="text-sm font-bold text-white">Developer ⚡</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Full-Stack</div>
+              <div className="text-sm font-bold text-slate-900 dark:text-white">Developer ⚡</div>
             </motion.div>
 
             <motion.div
-              className="absolute -top-4 -left-4 glass rounded-2xl px-4 py-2 border border-slate-700 z-20"
+              className="absolute -top-4 -left-4 glass rounded-2xl px-4 py-2 border border-slate-200 dark:border-slate-700 z-20"
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
-              <div className="text-xs text-slate-400 font-medium">Computer</div>
-              <div className="text-sm font-bold text-cyan-400">Engineering 💻</div>
+              <div className="text-xs text-slate-500 dark:text-slate-400 font-medium">Computer</div>
+              <div className="text-sm font-bold text-cyan-500 dark:text-cyan-400">Engineering 💻</div>
             </motion.div>
           </div>
         </motion.div>
